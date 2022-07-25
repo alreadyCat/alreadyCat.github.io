@@ -6,22 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>了解Vue之造轮子 | Hexo</title>
+  <title>js基础复习 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="写个属于自己的小型 Vue 框架吧">
+  <meta name="description" content="小小复习一下 js，经常不复习总是忘记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="了解Vue之造轮子">
-<meta property="og:url" content="http://example.com/2022/07/22/22-7-22%E9%80%A0%E4%B8%AA%E5%B0%8FVue%E7%9A%84%E8%BD%AE%E5%AD%90/index.html">
+<meta property="og:title" content="js基础复习">
+<meta property="og:url" content="http://example.com/2022/03/22/22-3-22%E5%A4%8D%E4%B9%A0js%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="写个属于自己的小型 Vue 框架吧">
+<meta property="og:description" content="小小复习一下 js，经常不复习总是忘记">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-23T07:40:23.173Z">
+<meta property="og:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/039d55333ea0421fab1c5ae55843cf2e%20%281%29.png">
+<meta property="og:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/6467cb65bf994a5694d9e216579164ef.png">
+<meta property="article:published_time" content="2022-03-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-25T05:57:07.074Z">
 <meta property="article:author" content="Last code">
-<meta property="article:tag" content="Vue源码">
+<meta property="article:tag" content="原型">
+<meta property="article:tag" content="原型链">
+<meta property="article:tag" content="__proto__">
+<meta property="article:tag" content="prototype">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/039d55333ea0421fab1c5ae55843cf2e%20%281%29.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -233,22 +239,22 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-22-7-22造个小Vue的轮子" class="article article-type-post " itemscope itemprop="blogPost">
+                <article id="post-22-3-22复习js原型原型链" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      了解Vue之造轮子
+      js基础复习
     </h1>
   
 
 
   
   
-<a href="/2022/07/22/22-7-22%E9%80%A0%E4%B8%AA%E5%B0%8FVue%E7%9A%84%E8%BD%AE%E5%AD%90/" class="archive-article-date">
-        <time datetime="2022-07-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-22</time>
+<a href="/2022/03/22/22-3-22%E5%A4%8D%E4%B9%A0js%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="archive-article-date">
+        <time datetime="2022-03-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
 </a>
 
   
@@ -261,7 +267,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">355字</span>
+      <span class="post-count">225字</span>
     </span>
   </span>
 
@@ -281,17 +287,24 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="写个属于自己的小型-Vue-框架吧"><a href="#写个属于自己的小型-Vue-框架吧" class="headerlink" title="写个属于自己的小型 Vue 框架吧"></a>写个属于自己的小型 Vue 框架吧</h2><span id="more"></span>
+    <h2 id="小小复习一下-js，经常不复习总是忘记"><a href="#小小复习一下-js，经常不复习总是忘记" class="headerlink" title="小小复习一下 js，经常不复习总是忘记"></a>小小复习一下 js，经常不复习总是忘记</h2><span id="more"></span>
 
-<h3 id="主要实现功能"><a href="#主要实现功能" class="headerlink" title="主要实现功能"></a>主要实现功能</h3><blockquote>
-<ol>
-<li>接收初始化参数</li>
-<li>把 Data 注入到 Vue 中，并转化为 getter&#x2F;setter</li>
-<li>调用 observer 监听 data 中的变化</li>
-<li>调用 compiler 解析指令和差值表达式</li>
-</ol>
+<blockquote>
+<p>在 js 中每个构造函数或者类身上都有一个<code>prototype</code>属性，这个属性指向的对象就是原型，</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Observer监听类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Observer</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">walk</span>(data)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">walk</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!data || <span class="keyword">typeof</span> data !== <span class="string">&#x27;object&#x27;</span>) <span class="keyword">return</span></span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">keys</span>(data).<span class="title function_">forEach</span>(<span class="function">(<span class="params">key</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">_reactive</span>(data, key, data[key])</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">_reactive</span>(<span class="params">data, key, value</span>) &#123;</span><br><span class="line">    <span class="comment">// 递归，让值是复杂类型的也为响应式</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">walk</span>(value)</span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(data, key, &#123;</span><br><span class="line">      <span class="attr">enumerable</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">configurable</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> value</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// set(newValue) &#123;</span></span><br><span class="line">      <span class="comment">//   if (newValue === value) return</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">//   value = newValue</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">//   // do something like update dom</span></span><br><span class="line">      <span class="comment">// &#125;</span></span><br><span class="line">      <span class="attr">set</span>: <span class="function">(<span class="params">newValue</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (newValue === value) <span class="keyword">return</span></span><br><span class="line">        value = newValue</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 让修改后的复杂对象也为响应式</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">walk</span>(newValue)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// do something like update dom</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// compiler类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Compiler</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">vm</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">vm</span> = vm</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">el</span> = vm.<span class="property">$el</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Vue类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Vue</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">options</span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 接收参数并保存</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$options</span> = options || &#123;&#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$data</span> = options.<span class="property">data</span> || &#123;&#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$el</span> = <span class="keyword">typeof</span> options.<span class="property">el</span> === <span class="string">&#x27;string&#x27;</span> ? <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(options.<span class="property">el</span>) : options.<span class="property">el</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 把data注入到Vue中并转化为getter/setter</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">_proxyData</span>(options.<span class="property">data</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 调用Observer类把data中的所有数据转化为响应式</span></span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">Observer</span>(<span class="variable language_">this</span>.<span class="property">$data</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">_proxyData</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">keys</span>(data).<span class="title function_">forEach</span>(<span class="function">(<span class="params">key</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="variable language_">this</span>, key, &#123;</span><br><span class="line">        <span class="attr">enumerable</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">configurable</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> data[key]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="title function_">set</span>(<span class="params">newValue</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (newValue === data[key]) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">          data[key] = newValue</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vm = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&#x27;111&#x27;</span>,</span><br><span class="line">    <span class="attr">count</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">person</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;ls&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">12</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="1-那么何为原型？"><a href="#1-那么何为原型？" class="headerlink" title="1. 那么何为原型？"></a>1. 那么何为原型？</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;zs&#x27;</span>, <span class="number">19</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(p1.<span class="property">__proto__</span> === <span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> === <span class="title class_">Person</span>) <span class="comment">//true</span></span><br><span class="line"><span class="comment">//顺便学习一个ES5的方法,可以获得对象的原型</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">getPrototypeOf</span>(person) === <span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/039d55333ea0421fab1c5ae55843cf2e%20%281%29.png"></p>
+</blockquote>
+<h2 id="2-何为原型链？"><a href="#2-何为原型链？" class="headerlink" title="2.何为原型链？"></a>2.何为原型链？</h2><blockquote>
+<p>在 js 中，万物都是对象，对象之间存在继承关系，在我们访问一个对象时，首先会在自身上找，没有找到就回去原型对象中去寻找，没有找到再去原型的原型对象身上去找，一直找到<code>Object.__proto__</code>，而 Object 对象是老祖宗，没人比他大了，所以<code>Object.__proto__</code>为空。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">__proto__</span> === <span class="literal">null</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/6467cb65bf994a5694d9e216579164ef.png"></p>
+</blockquote>
 
     
 
@@ -340,7 +353,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue源码</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原型</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">原型链</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">__proto__</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">prototype</a>
         		</li>
       		
 		</ul>
@@ -396,7 +421,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/07/22/22-7-22%E9%80%A0%E4%B8%AA%E5%B0%8FVue%E7%9A%84%E8%BD%AE%E5%AD%90/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/22/22-3-22%E5%A4%8D%E4%B9%A0js%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -411,18 +436,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/07/22/22-7-22%E5%A4%8D%E4%B9%A0js%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/03/22/22-3-22%E4%BA%86%E8%A7%A3Vue%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          js基础复习
+          剖析Vue源码
         
       </div>
     </a>
   
   
-    <a href="/2022/03/30/22-3-30react18%E6%96%B0%E5%A2%9E/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">react 18</div>
+    <a href="/2022/03/22/22-3-22%E9%80%A0%E4%B8%AA%E5%B0%8FVue%E7%9A%84%E8%BD%AE%E5%AD%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">了解Vue之造轮子</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -568,11 +593,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,11 +625,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">instanceof</a>
+                <a href="javascript:void(0)" class="js-tag color2">js深浅拷贝</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">js深浅拷贝</a>
+                <a href="javascript:void(0)" class="js-tag color1">instanceof</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,15 +645,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue实现excel导出</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Vue源码分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue实现excel导出</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,6 +674,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vue源码分析 响应式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
             
             <div class="clearfix"></div>
