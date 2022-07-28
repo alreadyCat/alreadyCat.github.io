@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>解决第三方图片403的问题 | Welcome</title>
+  <title>react 18 | Welcome</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="解决第三方图片 403 的问题">
+  <meta name="description" content="react 18 新增">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决第三方图片403的问题">
-<meta property="og:url" content="http://example.com/2022/01/04/22-1-4%E8%A7%A3%E5%86%B3%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E7%89%87403%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="react 18">
+<meta property="og:url" content="http://example.com/2022/03/30/22-3-30react18%E6%96%B0%E5%A2%9E%20copy/index.html">
 <meta property="og:site_name" content="Welcome">
-<meta property="og:description" content="解决第三方图片 403 的问题">
+<meta property="og:description" content="react 18 新增">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-01-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-22T15:49:01.092Z">
+<meta property="article:published_time" content="2022-03-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-22T15:56:42.448Z">
 <meta property="article:author" content="Last code">
-<meta property="article:tag" content="图片304">
+<meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Welcome" type="application/atom+xml">
@@ -233,22 +233,22 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-22-1-4解决第三方图片403的问题" class="article article-type-post " itemscope itemprop="blogPost">
+                <article id="post-22-3-30react18新增 copy" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      解决第三方图片403的问题
+      react 18
     </h1>
   
 
 
   
   
-<a href="/2022/01/04/22-1-4%E8%A7%A3%E5%86%B3%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E7%89%87403%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2022-01-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-04</time>
+<a href="/2022/03/30/22-3-30react18%E6%96%B0%E5%A2%9E%20copy/" class="archive-article-date">
+        <time datetime="2022-03-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-30</time>
 </a>
 
   
@@ -261,7 +261,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">420字</span>
+      <span class="post-count">152字</span>
     </span>
   </span>
 
@@ -281,32 +281,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="解决第三方图片-403-的问题"><a href="#解决第三方图片-403-的问题" class="headerlink" title="解决第三方图片 403 的问题"></a>解决第三方图片 403 的问题</h2><span id="more"></span>
+    <h2 id="react-18-新增"><a href="#react-18-新增" class="headerlink" title="react 18 新增"></a>react 18 新增</h2><span id="more"></span>
 
-<h3 id="关于第三方图片资源-403-问题"><a href="#关于第三方图片资源-403-问题" class="headerlink" title="关于第三方图片资源 403 问题"></a>关于第三方图片资源 403 问题</h3><p>为什么文章列表数据中的好多图片资源请求失败返回 403？</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是因为我们项目的接口数据是后端通过爬虫抓取的第三方平台内容，而第三方平台对图片资源做了防盗链保护处理。</span><br></pre></td></tr></table></figure>
+<h2 id="客户端渲染-API-更新"><a href="#客户端渲染-API-更新" class="headerlink" title="客户端渲染 API 更新"></a>客户端渲染 API 更新</h2><p>当你首次安装 React 18 的时候，你会看到如下警告：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">ReactDOM</span>.<span class="property">render</span> is no longer supported <span class="keyword">in</span> <span class="title class_">React</span> <span class="number">18.</span> <span class="title class_">Use</span> createRoot instead. <span class="title class_">Until</span> you <span class="keyword">switch</span> to the <span class="keyword">new</span> <span class="variable constant_">API</span>, your app will behave <span class="keyword">as</span> <span class="keyword">if</span> it’s running <span class="title class_">React</span> <span class="number">17.</span> <span class="title class_">Learn</span> <span class="attr">more</span>: <span class="attr">https</span>:<span class="comment">//reactjs.org/link/switch-to-createroot[3]。</span></span><br><span class="line"><span class="title class_">React</span> <span class="number">18</span></span><br><span class="line">提供了更合理的初始化 <span class="variable constant_">API</span>，使用该 <span class="variable constant_">API</span>，会自动启用 concurrent 模式：</span><br></pre></td></tr></table></figure>
 
-<p>第三方平台怎么处理图片资源保护的？</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">服务端一般使用 Referer 请求头识别访问来源，然后处理资源访问。</span><br></pre></td></tr></table></figure>
-
-<p>Referer 是什么东西？</p>
-<blockquote>
-<p>扩展参考：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/06/http-referer.html">http://www.ruanyifeng.com/blog/2019/06/http-referer.html</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Referer 是 HTTP 请求头的一部分，当浏览器向 Web 服务器发送请求的时候，一般会带上 Referer，它包含了当前请求资源的来源页面的地址。服务端一般使用 Referer 请求头识别访问来源，可能会以此进行统计分析、日志记录以及缓存优化等。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>需要注意的是 referer 实际上是 “referrer” 误拼写。参见 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP_referer">HTTP referer on Wikipedia</a> （HTTP referer 在维基百科上的条目）来获取更详细的信息。</p>
-</blockquote>
-<p>怎么解决？</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不要发送 referrer ，对方服务端就不知道你从哪来的了，姑且认为是你是自己人吧。</span><br></pre></td></tr></table></figure>
-
-<p>如何设置不发送 referrer？</p>
-<p>用 <code>&lt;a&gt;</code>、<code>&lt;area&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;iframe&gt;</code>、<code>&lt;script&gt;</code> 或者 <code>&lt;link&gt;</code> 元素上的 <code>referrerpolicy</code> 属性为其设置独立的请求策略，例如：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;http://……&quot;</span> <span class="attr">referrerpolicy</span>=<span class="string">&quot;no-referrer&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>或者直接在 HTMl 页面头中通过 meta 属性全局配置：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;referrer&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-referrer&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Before</span></span><br><span class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">&#x27;react-dom&#x27;</span></span><br><span class="line"><span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>)</span><br><span class="line"><span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">App</span> <span class="attr">tab</span>=<span class="string">&quot;home&quot;</span> /&gt;</span></span>, container)</span><br><span class="line"></span><br><span class="line"><span class="comment">// After</span></span><br><span class="line"><span class="keyword">import</span> &#123; createRoot &#125; <span class="keyword">from</span> <span class="string">&#x27;react-dom/client&#x27;</span></span><br><span class="line"><span class="keyword">const</span> container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> root = <span class="title function_">createRoot</span>(container)</span><br><span class="line">root.<span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">App</span> <span class="attr">tab</span>=<span class="string">&quot;home&quot;</span> /&gt;</span></span>)</span><br></pre></td></tr></table></figure>
 
     
 
@@ -355,7 +335,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">图片304</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
@@ -411,7 +391,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/04/22-1-4%E8%A7%A3%E5%86%B3%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BE%E7%89%87403%E7%9A%84%E9%97%AE%E9%A2%98/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/30/22-3-30react18%E6%96%B0%E5%A2%9E%20copy/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -426,18 +406,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/01/04/22-1-4%E7%BB%A7%E6%89%BF/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/04/01/22-4-1%E6%89%81%E5%B9%B3%E6%95%B0%E7%BB%84%E5%92%8CJSON%E6%A0%91%E7%BB%93%E6%9E%84%E8%BD%AC%E6%8D%A2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          继承
+          扁平数组和JSON树结构转换
         
       </div>
     </a>
   
   
-    <a href="/2022/01/04/22-1-4%E9%97%AD%E5%8C%85/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">闭包</div>
+    <a href="/2022/03/24/22-3-24Vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剖析Vue源码</div>
       <i class="icon-circle-right"></i>
     </a>
   

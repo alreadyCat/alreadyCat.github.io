@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="Welcome">
 <meta property="og:description" content="同步任务和异步任务">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1107494/201908/1107494-20190813234853418-2103401274.png">
+<meta property="og:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/1107494-20190813234853418-2103401274.png">
 <meta property="article:published_time" content="2022-01-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-22T15:55:12.403Z">
+<meta property="article:modified_time" content="2022-07-28T13:37:58.000Z">
 <meta property="article:author" content="Last code">
 <meta property="article:tag" content="事件循环">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1107494/201908/1107494-20190813234853418-2103401274.png">
+<meta name="twitter:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/1107494-20190813234853418-2103401274.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome" type="application/atom+xml">
   
@@ -263,7 +263,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">992字</span>
+      <span class="post-count">989字</span>
     </span>
   </span>
 
@@ -286,19 +286,25 @@
     <h1 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h1><span id="more"></span>
 
 <blockquote>
-<p>为了防止某个耗时任务导致程序假死的问题，JavaScript 把待执行的任务分成了两类： 1.同步任务(synchronous)</p>
+<h3 id="为了防止某个耗时任务导致程序假死的问题，JavaScript-把待执行的任务分成了两类："><a href="#为了防止某个耗时任务导致程序假死的问题，JavaScript-把待执行的任务分成了两类：" class="headerlink" title="为了防止某个耗时任务导致程序假死的问题，JavaScript 把待执行的任务分成了两类："></a>为了防止某个耗时任务导致程序假死的问题，JavaScript 把待执行的任务分成了两类：</h3><ol>
+<li>同步任务(synchronous)</li>
+</ol>
 <ul>
 <li><p>又叫做非耗时任务，指的是在主线程上排队执行的那些任务</p>
 </li>
 <li><p>只有前一个任务执行完毕，才能执行后一个任务</p>
-<p>2.异步任务(asynchronous)</p>
-</li>
-<li><p>又叫耗时任务，异步任务由 JavaScript 委托给宿主环境(js 在哪个地方执行的谁就是宿主环境，比如浏览器||node)进行执行</p>
-</li>
-<li><p>当异步任务执行完成后，会通知 JavaScript 主线程执行异步任务的回调函数 3.同步任务和异步任务的执行过程</p>
 </li>
 </ul>
-<ol>
+<ol start="2">
+<li>异步任务(asynchronous)</li>
+</ol>
+<ul>
+<li><p>又叫耗时任务，异步任务由 JavaScript 委托给宿主环境(js 在哪个地方执行的谁就是宿主环境，比如浏览器||node)进行执行</p>
+</li>
+<li><p>当异步任务执行完成后，会通知 JavaScript 主线程执行异步任务的回调函数</p>
+</li>
+</ul>
+<h3 id="同步任务和异步任务的执行过程"><a href="#同步任务和异步任务的执行过程" class="headerlink" title="同步任务和异步任务的执行过程"></a>同步任务和异步任务的执行过程</h3><ol>
 <li>同步任务由 JavaScript 主线程执行</li>
 <li>异步任务委托给 JavaScript 宿主环境执行</li>
 <li>已完成的异步任务对应的回调函数会放到任务队列中等待执行</li>
@@ -334,7 +340,7 @@
 <blockquote>
 <p>宏任务和微任务的执行顺序，每一个宏任务执行完之后，都会检查是否存在待执行的微任务</p>
 </blockquote>
-<p><img src="https://img2018.cnblogs.com/blog/1107494/201908/1107494-20190813234853418-2103401274.png" alt="如果图片打不开就f12复制图片路径浏览器打开"></p>
+<p><img src="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/1107494-20190813234853418-2103401274.png" alt="如果图片打不开就f12复制图片路径浏览器打开"></p>
 <blockquote>
 <p>去银行办业务的场景<br>① 小云和小腾去银行办业务。首先，需要取号之后进行排队<br>● 宏任务队列<br>② 假设当前银行网点只有一一个柜员，小云在办理存款业务时，小腾只能等待<br>● 单线程，宏任务按次序执行<br>③ 小云办完存款业务后,柜员询问他是否还想办理其它业务?<br>● 当前宏任务执行完,检查是否有微任务<br>④ 小云告诉柜员:想要买理财产品、再办个信用卡、最后再兑换点马年纪念币?.<br>● 执行微任务，后续宏任务被推迟<br>⑤ 小云离开柜台后，柜员开始为小腾办理业务<br>● 所有微任务执行完毕，开始执行下一一个宏任务</p>
 </blockquote>
@@ -461,18 +467,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/01/17/22-1-17Promise/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/01/17/22-1-17ES6%E6%A8%A1%E5%9D%97%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Promise
+          ES6
         
       </div>
     </a>
   
   
-    <a href="/2022/01/12/22-1-12Node-Express/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Express</div>
+    <a href="/2022/01/17/22-1-17Promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Promise</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -606,6 +612,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
@@ -618,19 +628,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,6 +641,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Diff算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,6 +700,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Vue源码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vue源码分析 响应式</a>
               </li>
              
@@ -702,7 +712,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue源码</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
