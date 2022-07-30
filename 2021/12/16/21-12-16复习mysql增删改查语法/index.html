@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 原型链 | Welcome</title>
+  <title>mysql增删改查 | Welcome</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome">
-<meta property="og:url" content="http://example.com/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/index.html">
+  <meta name="description" content="复习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql增删改查">
+<meta property="og:url" content="http://example.com/2021/12/16/21-12-16%E5%A4%8D%E4%B9%A0mysql%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="Welcome">
+<meta property="og:description" content="复习">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-30T09:13:02.813Z">
 <meta property="article:author" content="Last code">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Welcome" type="application/atom+xml">
@@ -228,77 +233,396 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                
-  
-  
+                <article id="post-21-12-16复习mysql增删改查语法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/03/22/22-3-22%E5%A4%8D%E4%B9%A0js%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="archive-article-date">
-        <time datetime="2022-03-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/03/22/22-3-22%E5%A4%8D%E4%B9%A0js%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank">js基础复习</a>
   
+    <h1 class="article-title" itemprop="name">
+      mysql增删改查
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+<a href="/2021/12/16/21-12-16%E5%A4%8D%E4%B9%A0mysql%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+        <time datetime="2021-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-16</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">451字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h2><span id="more"></span>
+
+<blockquote>
+<p>创建表<br>语法：create schema 表名<br>例：<code>create schema users</code></p>
+</blockquote>
+<blockquote>
+<p>先把表字段添加上去</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th align="center">username</th>
+<th align="center">password</th>
+<th align="center">status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="center">zs</td>
+<td align="center">123456</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">ls</td>
+<td align="center">4312123</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">ww</td>
+<td align="center">455678</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">wmz</td>
+<td align="center">654897</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<ol>
+<li>查<ul>
+<li>语法： select 列名 from 表名</li>
+<li>例: <code>select username from users</code></li>
+<li>查多列：<code>select username,password from users</code></li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>改<ul>
+<li>语法：update 表名 set 列名&#x3D;值 where 条件(列名&#x3D;值)</li>
+<li>例: <code>update users set username=&quot;hahah&quot; where id=2</code></li>
+<li>改多列：<code>update users set username=&quot;hahah&quot;,password=&quot;65464&quot; where id=2</code></li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>增<ul>
+<li>语法：insert into 表名 列名（多列用逗号隔开） values 值（与列名对应的值，多个用逗号隔开）</li>
+<li>例: <code>insert into users (username,password) values (&#39;qwe&#39;,&#39;369369&#39;)</code></li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li>删<ul>
+<li>语法：delete from 表名 where 条件(列名&#x3D;值)</li>
+<li>例: <code>delete from users where username=zs</code></li>
+<li>如果不加 <code>where</code> 就会删除全部</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="5">
+<li><code>where</code> 子句<blockquote>
+<p>where 中的运算符</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;&gt;(某些版本可以用!&#x3D;)</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>在某个范围内</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>搜索某种模式</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>例：<code>select * from users where id&gt;2</code></p>
+</blockquote>
+<blockquote>
+<ol start="6">
+<li>AND 和 OR 运算符<ul>
+<li>AND 表示同时满足多个条件<br>例：<code>delete from users where id&gt;2 and status=0</code></li>
+<li>OR 表示满足一个条件即可<br>例：<code>delete from users where id&gt;4 or id=1</code></li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="7">
+<li>ORDER BY 子句<br>order by 语句用于根据指定的列对结果集进行排序<br>默认为升序，可以指定 DESC 关键字对结果集进行降序排序<br>例： <code>select * from users order by status</code><br>降序：<code>select * from users order by status desc</code><br>多重排序：按照 status 降序，再按照 username 字母顺序升序，示例如下<blockquote>
+<p><code>select * from users order by status desc,username asc</code></p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="8">
+<li><code>count(*)</code>函数<br>作用：查询表中总数据条数<br>例：<code>select count(*) from users where id&gt;2</code><br>OUTPUT:<table>
+<thead>
+<tr>
+<th>count(*)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<hr>
+<blockquote>
+<p>使用 as 为列设置别名<br>例：<code>select count(*) as total from users where id&gt;2</code><br>OUTPUT:</p>
+<table>
+<thead>
+<tr>
+<th align="left">total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2</td>
+</tr>
+</tbody></table>
+</blockquote>
+</blockquote>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>有兴趣的话支持一下吧~<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原型</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">原型链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">__proto__</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">prototype</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/12/16/21-12-16%E5%A4%8D%E4%B9%A0mysql%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E8%AF%AD%E6%B3%95/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+    <a href="/2021/12/16/21-12-16CSS%E5%A4%8D%E4%B9%A0%E4%B9%8B%E4%B8%89%E8%A7%92%E5%BD%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CSS实现三角形
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/11/13/21-11-13%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node/Ajax/template 实现省市区三级联动</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
               </div>
@@ -327,9 +651,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
