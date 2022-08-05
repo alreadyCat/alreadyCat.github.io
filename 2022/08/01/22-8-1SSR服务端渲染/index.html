@@ -10,17 +10,22 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="服务端渲染解决了什么问题">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SSR服务端渲染">
 <meta property="og:url" content="http://example.com/2022/08/01/22-8-1SSR%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/index.html">
 <meta property="og:site_name" content="Welcome">
+<meta property="og:description" content="服务端渲染解决了什么问题">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/20210602100913985.png">
+<meta property="og:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/20200828214347690.png">
 <meta property="article:published_time" content="2022-07-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-05T04:42:42.252Z">
+<meta property="article:modified_time" content="2022-08-05T14:41:56.802Z">
 <meta property="article:author" content="Last code">
-<meta property="article:tag" content="http">
-<meta property="article:tag" content="网络协议">
+<meta property="article:tag" content="SSR">
+<meta property="article:tag" content="SPA">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/20210602100913985.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome" type="application/atom+xml">
   
@@ -260,7 +265,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">12字</span>
+      <span class="post-count">1.5k字</span>
     </span>
   </span>
 
@@ -269,7 +274,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -280,9 +285,47 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id=""><a href="#" class="headerlink" title=""></a></h2><span id="more"></span>
+    <h2 id="服务端渲染解决了什么问题"><a href="#服务端渲染解决了什么问题" class="headerlink" title="服务端渲染解决了什么问题"></a>服务端渲染解决了什么问题</h2><span id="more"></span>
 
-<p>服务端渲染解决了什么问题</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+<li>SSR （server side render）服务端渲染，是指由服务侧（server side）完成页面的 DOM 结构拼接，然后发送到浏览器，为其绑定状态与事件，成为完全可交互页面的过程。</li>
+<li>CSR（client side render）客户端渲染，是指由客户端（client side）JS 完成页面和数据的拼接，生成 DOM 结构再交由浏览器渲染成页面的过程。</li>
+<li>SPA（single page application）单页面应用，指只有一张 WEB 页面的应用，也就是说在导航切换的过程中页面不会刷新，只是局部更新内容。SPA 实现的原理就采用了 CSR，页面中所有内容由 JS 控制，需要浏览器进行 JS 解析才能显示出来。</li>
+<li>SEO（search engine optimization）搜索引擎优化，利用搜索引擎的规则提高网站在有关搜索引擎内的自然排名。</li>
+</ol>
+<h3 id="发展背景"><a href="#发展背景" class="headerlink" title="发展背景"></a>发展背景</h3><p>早些年的互联网时代，应用逻辑相对比较简单，与用户的交互并不是很多，所以大部分的网站都是由前端工程师开发好 HTML 页面，后台拿到页面后转成后台模板语法，将动态的数据添加进去，如 JSP、Velocity 等。后台开发完成后启动服务，当我们访问页面时，后台定位到请求的路径，按照页面需求从数据库抓取数据，随之进行 HTML 文件的拼接，最后返回给浏览器。这也就是初级的服务端渲染。</p>
+<p>随着应用复杂性提高，用户对于界面的要求越来越高，前端交互也越发显得重要。同时，AJAX 的兴起把传统的开发模式带入到一个新时代：前后端分离式开发，即前端有自己的服务，不依赖于后台，前后端通过 AJAX 进行数据交互。前端发送请求，通过后台提供的 api 获取数据，然后通过前端 js 进行 HTML 页面的生成，展示给浏览器。这也就是所谓的客户端渲染。</p>
+<p>SPA 单页面应用就是这个时代的产物，一些框架也由此盛行，如 Vue、React、Angular 等，配合着 webpack、gulp 等打包工具，实现了前端开发环境热更新部署，生产环境的压缩优化打包，让前端开发效率及质量大大提高。</p>
+<p>SPA 单页面应用虽好，但同时也伴随着一些弊端的产生，不利于 SEO，SEO 是通过抓取我们网页源码中的关键字来建立索引库的，而是通过 js 添加进去的网站就会被搜索引擎直接 pass 掉了。</p>
+<p>首屏加载速度慢，因为页面内容是由 js 拼接出来的，所以浏览器会等待 js 处理完成后才能渲染真正的 DOM 结构，多了一些等待时间。</p>
+<h3 id="解决-SEO-和首屏加载慢的问题"><a href="#解决-SEO-和首屏加载慢的问题" class="headerlink" title="解决 SEO 和首屏加载慢的问题"></a>解决 SEO 和首屏加载慢的问题</h3><p>在浏览器与后台服务间搭建一个服务器（一般是用 node.js 搭建的），专门用于服务端渲染。其流程是这样的：<br><img src="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/20210602100913985.png"></p>
+<h3 id="服务器端渲染的优缺点是？"><a href="#服务器端渲染的优缺点是？" class="headerlink" title="服务器端渲染的优缺点是？"></a>服务器端渲染的优缺点是？</h3><p><strong>优点</strong></p>
+<ol>
+<li>前端耗时少。因为后端拼接完了 html，浏览器只需要直接渲染出来。</li>
+<li>有利于 SEO。因为在后端有完整的 html 页面，所以爬虫更容易爬取获得信息，更有利于 seo。</li>
+<li>无需占用客户端资源。即解析模板的工作完全交由后端来做，客户端只要解析标准的 html 页面即可，这样对于客户端的资源占用更少，尤其是移动端，也可以更省电。</li>
+<li>后端生成静态化文件。即生成缓存片段，这样就可以减少数据库查询浪费的时间了，且对于数据变化不大的页面非常高效 。</li>
+</ol>
+<p><strong>缺点</strong></p>
+<ol>
+<li>不利于前后端分离，开发效率低。使用服务器端渲染，则无法进行分工合作，则对于前端复杂度高的项目，不利于项目高效开发。另外，如果是服务器端渲染，则前端一般就是写一个静态 html 文件，然后后端再修改为模板，这样是非常低效的，并且还常常需要前后端共同完成修改的动作； 或者是前端直接完成 html 模板，然后交由后端。另外，如果后端改了模板，前端还需要根据改动的模板再调节 css，这样使得前后端联调的时间增加。</li>
+<li>占用服务器端资源。即服务器端完成 html 模板的解析，如果请求较多，会对服务器造成一定的访问压力。而如果使用前端渲染，就是把这些解析的压力分摊了前端，而这里确实完全交给了一个服务器。</li>
+</ol>
+<h3 id="客户端渲染的优缺点是？"><a href="#客户端渲染的优缺点是？" class="headerlink" title="客户端渲染的优缺点是？"></a>客户端渲染的优缺点是？</h3><p><strong>优点</strong></p>
+<ol>
+<li>前后端分离。前端专注于前端 UI，后端专注于 api 开发，且前端有更多的选择性，而不需要遵循后端特定的模板。<br>体验更好。比如，我们将网站做成 SPA 或者部分内容做成 SPA，这样，尤其是移动端，可以使体验更接近于原生 app。</li>
+</ol>
+<p><strong>缺点</strong></p>
+<ol>
+<li>前端响应较慢。如果是客户端渲染，前端还要进行拼接字符串的过程，需要耗费额外的时间，不如服务器端渲染速度快。<br>不利于 SEO。虽然 Chrome 和部分浏览器开始对页面进行 JS 的执行后再抓取，但目前大部分浏览器对于 SPA 都是不认的，只是记录了一个页面，所以 SEO 很差。因为服务器端可能没有保存完整的 html，而是前端通过 js 进行 dom 的拼接，那么爬虫无法爬取信息。</li>
+</ol>
+<h3 id="服务端渲染有很多方式都能够实现："><a href="#服务端渲染有很多方式都能够实现：" class="headerlink" title="服务端渲染有很多方式都能够实现："></a>服务端渲染有很多方式都能够实现：</h3><ol>
+<li>JSP（JavaServer Pages）</li>
+<li>express + ejs&#x2F;koa…</li>
+<li>express + react</li>
+<li>vue + nuxt</li>
+</ol>
+<p>下面转载自知乎：@justjavac<br><img src="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/20200828214347690.png"></p>
 
     
 
@@ -331,11 +374,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSR</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络协议</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SPA</a>
         		</li>
       		
 		</ul>
@@ -416,8 +459,8 @@
     </a>
   
   
-    <a href="/2022/08/01/22-8-1Vue2%E5%92%8CVue3%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8C%BA%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vue2和Vue3数据响应式区别</div>
+    <a href="/2022/08/01/22-8-1Vue%E4%BE%9D%E8%B5%96%E6%94%B6%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue依赖收集</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -551,10 +594,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
@@ -564,6 +603,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">art-template</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,6 +626,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">图片懒加载</a>
               </li>
              
@@ -591,15 +638,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color5">事件循环</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">事件循环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,6 +654,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">防抖</a>
               </li>
              
@@ -619,7 +666,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color1">instanceof</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,15 +674,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">instanceof</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">js深浅拷贝</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">图片304</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,11 +682,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">闭包</a>
+                <a href="javascript:void(0)" class="js-tag color1">图片304</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue源码分析</a>
+                <a href="javascript:void(0)" class="js-tag color3">闭包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,7 +698,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue源码</a>
+                <a href="javascript:void(0)" class="js-tag color3">Vue源码分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,11 +718,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
+                <a href="javascript:void(0)" class="js-tag color1">Vue源码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,7 +734,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络协议</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SPA</a>
               </li>
              
               <li class="article-tag-list-item">
