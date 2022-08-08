@@ -577,6 +577,22 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">回流</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">帧动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue2和3响应式区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">事件委托</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">事件冒泡</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -732,6 +748,36 @@
   if (modelPathJson[modelName]) {
     modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelPathJson[modelName] +
       ".model.json";
+  } else {
+    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelName + ".model.json";
+  }
+  L2Dwidget.init({
+    model: {
+      jsonPath: modelJsonPath
+    },
+    display: {
+       position: "right", 
+       width: 145, 
+       height: 315, 
+       hOffset: 50, 
+      
+    },
+    mobile: {
+       show: false, 
+       scale: 0.6 
+    },
+    react: {
+       opacity: 0.8 
+    }
+  })
+
+</script>
+
+                
+                  
+  </body>
+
+</html>on";
   } else {
     modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelName + ".model.json";
   }

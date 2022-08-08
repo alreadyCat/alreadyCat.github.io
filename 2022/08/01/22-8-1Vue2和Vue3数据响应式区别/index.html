@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Vue2和Vue3数据响应式区别 | Welcome</title>
+  <title>Object.defineProperty 和 Proxy 区别 | Welcome</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Vue2和Vue3数据响应式区别">
+  <meta name="description" content="Object.defineProperty 和 Proxy 区别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object.defineProperty 和 Proxy 区别">
 <meta property="og:url" content="http://example.com/2022/08/01/22-8-1Vue2%E5%92%8CVue3%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Welcome">
+<meta property="og:description" content="Object.defineProperty 和 Proxy 区别">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-05T04:42:50.619Z">
+<meta property="article:modified_time" content="2022-08-06T07:07:31.721Z">
 <meta property="article:author" content="Last code">
-<meta property="article:tag" content="http">
-<meta property="article:tag" content="网络协议">
+<meta property="article:tag" content="vue2和3响应式区别">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Welcome" type="application/atom+xml">
@@ -239,7 +240,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      Vue2和Vue3数据响应式区别
+      Object.defineProperty 和 Proxy 区别
     </h1>
   
 
@@ -260,7 +261,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">6字</span>
+      <span class="post-count">812字</span>
     </span>
   </span>
 
@@ -269,7 +270,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -280,9 +281,53 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id=""><a href="#" class="headerlink" title=""></a></h2><span id="more"></span>
+    <h2 id="Object-defineProperty-和-Proxy-区别"><a href="#Object-defineProperty-和-Proxy-区别" class="headerlink" title="Object.defineProperty 和 Proxy 区别"></a>Object.defineProperty 和 Proxy 区别</h2><span id="more"></span>
 
-<p>Object.defineProperty 和 Proxy 区别</p>
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><p>定义：用来修改某些操作的默认行为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler)</span><br><span class="line"><span class="comment">// 解释：es6提供的Proxy用来提供一个Proxy实例，target表示需要处理的对象，handler是一个对象，里面可以订制拦截行为</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = <span class="keyword">new</span> <span class="title class_">Proxy</span>(obj, &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, key</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;获取：Key&#x27;</span>, key, <span class="string">&#x27;Val&#x27;</span>, target[key])</span><br><span class="line">    <span class="keyword">return</span> target[key]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">set</span>(<span class="params">target, key, newVal</span>) &#123;</span><br><span class="line">    target[key] = newVal</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;修改：Key&#x27;</span>, key, <span class="string">&#x27;Val&#x27;</span>, target[key])</span><br><span class="line">    <span class="keyword">return</span> target[key]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p>原理：该方法可以在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回这个对象。</p>
+<blockquote>
+<p>Object.defineProperty(obj, prop, descriptor) 参数：</p>
+<ul>
+<li>obj: 要在其上定义属性的对象。</li>
+<li>prop: 要定义或修改的属性的名称。</li>
+<li>descriptor: 将被定义或修改的属性的描述符。</li>
+</ul>
+</blockquote>
+<p>需要解决的问题：</p>
+<ol>
+<li>obj 对象有多个属性，可能需要循环添加 Object.defineProperty 里</li>
+<li>obj 的属性可能是对象或数组，可能需要递归</li>
+<li>用户可能给 obj 赋值新的属性，需要单独处理<br>解决上面问题：<br>定义一个对象</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;坚持就是胜利&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">12</span>,</span><br><span class="line">  <span class="attr">love</span>: [<span class="string">&#x27;睡觉&#x27;</span>, <span class="string">&#x27;吃饭&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先实现响应式函数 defineProperty</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">defineProperty</span>(<span class="params">obj, key, val</span>) &#123;</span><br><span class="line">  <span class="title function_">observer</span>(newVal)</span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, key, &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="comment">// 读取方法</span></span><br><span class="line">      <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">set</span>(<span class="params">newVal</span>) &#123;</span><br><span class="line">      <span class="comment">// 赋值监听方法</span></span><br><span class="line">      <span class="keyword">if</span> (newVal === val) <span class="keyword">return</span></span><br><span class="line">      <span class="title function_">observer</span>(newVal)</span><br><span class="line">      val = newVal</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其次做个遍历函数 observer</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">observer</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span> || obj == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="comment">// 给对象中的每一个方法都设置响应式</span></span><br><span class="line">    <span class="title function_">defineProperty</span>(obj, key, obj[key])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Object.defineProperty 对象的方法式监听不到数组的变更的，需要重写 Array 的原型方法</span></span><br><span class="line"><span class="keyword">const</span> orginalproto = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span></span><br><span class="line"><span class="keyword">const</span> arrayProto = <span class="title class_">Object</span>.<span class="title function_">create</span>(orginalProto) <span class="comment">//先克隆一份 Array 的原型</span></span><br><span class="line"><span class="keyword">const</span> methodsToPatch = [<span class="string">&#x27;push&#x27;</span>, <span class="string">&#x27;pop&#x27;</span>, <span class="string">&#x27;shift&#x27;</span>, <span class="string">&#x27;unshift&#x27;</span>, <span class="string">&#x27;splice&#x27;</span>, <span class="string">&#x27;sort&#x27;</span>, <span class="string">&#x27;reverse&#x27;</span>]</span><br><span class="line">methodsToPatch.<span class="title function_">forEach</span>(<span class="function">(<span class="params">method</span>) =&gt;</span> &#123;</span><br><span class="line">  arrayProto[method] = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 执行原始操作</span></span><br><span class="line">    orginalProto[method].<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;监听赋值 成功&#x27;</span>, method)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原理就是重写数组的七个原始方法，当使用者执行这些方法时，就可以监听到数据的变化。</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">observer</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span> || obj == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">Array</span>.<span class="title function_">isArray</span>(obj)) &#123;</span><br><span class="line">    <span class="comment">// 如果是数组，重写原型</span></span><br><span class="line">    obj.<span class="property">_proto_</span> = arrayProto</span><br><span class="line">    <span class="comment">// 传入的数据可能是多维度的，也需要执行响应式的</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; obj.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="title function_">observer</span>(obj[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="comment">// 给对象中的每一个方法都设置响应式</span></span><br><span class="line">      <span class="title function_">definePrototype</span>(obj, key, obj[key])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>Object.defineProperty</p>
+<ol>
+<li>只能监听对象(Object)，不能监听数组的变化，无法触发 push, pop, shift, unshift,splice, sort, reverse，必须重写数组方法。</li>
+<li>必须遍历对象的每个属性</li>
+<li>只能劫持当前对象属性，如果想深度劫持，必须深层遍历嵌套的对象</li>
+</ol>
+<p>Proxy</p>
+<ol>
+<li>Proxy 可以直接监听对象而非属性</li>
+<li>Proxy 直接可以劫持整个对象,并返回一个新对象。</li>
+<li>Proxy 可以直接监听数组的变化</li>
+<li>Proxy 有多达 13 种拦截方法,不限于 apply、ownKeys、deleteProperty、has 等等是 Object.defineProperty 不具备的。</li>
+</ol>
 
     
 
@@ -331,11 +376,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络协议</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue2和3响应式区别</a>
         		</li>
       		
 		</ul>
@@ -416,8 +457,8 @@
     </a>
   
   
-    <a href="/2022/08/01/22-8-1webpack%E7%9A%84TreeShaking/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">webpack的TreeShaking</div>
+    <a href="/2022/08/01/22-8-1%E4%BB%80%E4%B9%88%E6%98%AFCDN/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">什么是CDN</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -740,6 +781,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">回流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">帧动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vue2和3响应式区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">事件委托</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">事件冒泡</a>
               </li>
             
             <div class="clearfix"></div>
