@@ -6,21 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>webpack的模块 | Welcome</title>
+  <title>了解webpack | Welcome</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="待学习">
+  <meta name="description" content="学习 webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack的模块">
-<meta property="og:url" content="http://example.com/2022/08/08/22-8-8webpack%E7%9A%84%E6%A8%A1%E5%9D%97/index.html">
+<meta property="og:title" content="了解webpack">
+<meta property="og:url" content="http://example.com/2022/08/08/22-8-8%E4%BA%86%E8%A7%A3webpack/index.html">
 <meta property="og:site_name" content="Welcome">
-<meta property="og:description" content="待学习">
+<meta property="og:description" content="学习 webpack">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/Snipaste_2022-08-10_15-58-25.png">
+<meta property="og:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/Snipaste_2022-08-10_15-59-16.png">
 <meta property="article:published_time" content="2022-08-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-08T04:56:15.245Z">
+<meta property="article:modified_time" content="2022-08-10T08:04:35.165Z">
 <meta property="article:author" content="Last code">
+<meta property="article:tag" content="webpack">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/Snipaste_2022-08-10_15-58-25.png">
   
     <link rel="alternative" href="/atom.xml" title="Welcome" type="application/atom+xml">
   
@@ -232,21 +236,21 @@
                   class="anm-canvas"></canvas>
               </div>
               <div id="js-content" class="content-ll">
-                <article id="post-22-8-8webpack的模块" class="article article-type-post " itemscope itemprop="blogPost">
+                <article id="post-22-8-8了解webpack" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      webpack的模块
+      了解webpack
     </h1>
   
 
 
   
   
-<a href="/2022/08/08/22-8-8webpack%E7%9A%84%E6%A8%A1%E5%9D%97/" class="archive-article-date">
+<a href="/2022/08/08/22-8-8%E4%BA%86%E8%A7%A3webpack/" class="archive-article-date">
         <time datetime="2022-08-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-08</time>
 </a>
 
@@ -260,7 +264,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3字</span>
+      <span class="post-count">347字</span>
     </span>
   </span>
 
@@ -280,7 +284,33 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="待学习"><a href="#待学习" class="headerlink" title="待学习"></a>待学习</h2><span id="more"></span>
+    <h2 id="学习-webpack"><a href="#学习-webpack" class="headerlink" title="学习 webpack"></a>学习 webpack</h2><span id="more"></span>
+
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p><code>webpack</code>是一个静态资源打包工具，它会以一个或者多个文件作为打包入口，将我们的项目所有文件编译成一个或者多个文件输出出去，输出的文件就是编译好的文件，就能在浏览器运行，webpack 输出的文件叫做 bundle。</p>
+<p>webpack 本身功能是有限的：</p>
+<ul>
+<li>开发模式：仅能编译 JS 中的 ES Module 语法</li>
+<li>生产模式：能编译 JS 的 ES Module 语法且能压缩 JS 代码</li>
+</ul>
+<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├─main.js</span><br><span class="line">├─src</span><br><span class="line">|  ├─js</span><br><span class="line">|  | ├─count.js</span><br><span class="line">|  | └sum.js</span><br><span class="line">├─public</span><br><span class="line">|   └index.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-count-js"><a href="#创建-count-js" class="headerlink" title="创建 count.js"></a>创建 count.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (x, y) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> x - y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-sum-js"><a href="#创建-sum-js" class="headerlink" title="创建 sum.js"></a>创建 sum.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (...rest) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> rest.<span class="title function_">reduce</span>(<span class="function">(<span class="params">p, c</span>) =&gt;</span> p + c, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在-main-js-下引入-sum-和-count"><a href="#在-main-js-下引入-sum-和-count" class="headerlink" title="在 main.js 下引入 sum 和 count"></a>在 main.js 下引入 sum 和 count</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> count <span class="keyword">from</span> <span class="string">&#x27;./src/js/count&#x27;</span></span><br><span class="line"><span class="keyword">import</span> sum <span class="keyword">from</span> <span class="string">&#x27;./src/js/sum&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">count</span>(<span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化-npm-环境"><a href="#初始化-npm-环境" class="headerlink" title="初始化 npm 环境"></a>初始化 npm 环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-webpack-所需依赖"><a href="#安装-webpack-所需依赖" class="headerlink" title="安装 webpack 所需依赖"></a>安装 webpack 所需依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack wepack-cli -D</span><br></pre></td></tr></table></figure>
+
+<h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx webpack ./main.js --mode=development  <span class="comment"># 第一种打包方法： 指定为开发环境打包 ---&gt; 只打包ES Module语法</span></span><br><span class="line">npx webpack ./main.js --mode=production   <span class="comment"># 第二种打包方法： 指定为生产环境打包 ---&gt; 打包ES Module语法并且压缩JS代码</span></span><br></pre></td></tr></table></figure>
+
+<p>第一种打包结果<img src="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/Snipaste_2022-08-10_15-58-25.png"></p>
+<p>第一种打包结果<img src="https://hrsaas-1259672777.cos.ap-nanjing.myqcloud.com/Snipaste_2022-08-10_15-59-16.png"></p>
+<h3 id="在静态-HTML-文件下引入"><a href="#在静态-HTML-文件下引入" class="headerlink" title="在静态 HTML 文件下引入"></a>在静态 HTML 文件下引入</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../dist/main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="控制台输出"><a href="#控制台输出" class="headerlink" title="控制台输出"></a>控制台输出</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
 
     
 
@@ -324,6 +354,17 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -374,7 +415,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/08/08/22-8-8webpack%E7%9A%84%E6%A8%A1%E5%9D%97/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/08/08/22-8-8%E4%BA%86%E8%A7%A3webpack/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -546,6 +587,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
@@ -554,15 +599,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,11 +623,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Diff算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
+                <a href="javascript:void(0)" class="js-tag color2">Diff算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,11 +659,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js继承</a>
+                <a href="javascript:void(0)" class="js-tag color1">图片304</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">图片304</a>
+                <a href="javascript:void(0)" class="js-tag color5">js继承</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,10 +683,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue源码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">原型</a>
               </li>
              
@@ -659,6 +696,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">prototype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Vue源码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,6 +747,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CDN</a>
               </li>
              
@@ -719,10 +764,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">csrf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
